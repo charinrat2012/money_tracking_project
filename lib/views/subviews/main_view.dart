@@ -49,13 +49,13 @@ class _MainViewState extends State<MainView> {
         children: [
           Padding(
             padding: const EdgeInsets.only(
-                // bottom: ,
+               
                 ),
             child: Container(
               width: MediaQuery.of(context).size.width * 1,
               height: MediaQuery.of(context).size.height * 0.35,
               decoration: BoxDecoration(
-                  color: const Color(0xFF3E7C78), // Main Color
+                  color: const Color(0xFF3E7C78), 
                   borderRadius: BorderRadius.vertical(
                     bottom: Radius.elliptical(
                         MediaQuery.of(context).size.width, 100.0),
@@ -99,7 +99,7 @@ class _MainViewState extends State<MainView> {
             ),
           ),
 
-//Total Money Box================================================================================
+
           Padding(
             padding: const EdgeInsets.only(
               top: 150,
@@ -110,7 +110,7 @@ class _MainViewState extends State<MainView> {
               width: MediaQuery.of(context).size.width * 1,
               height: MediaQuery.of(context).size.height * 0.25,
               decoration: BoxDecoration(
-                  color: //const Color.fromARGB(255, 47, 116, 121), // Main Color
+                  color: 
                       Color(0xFF107C78),
                   borderRadius: BorderRadius.circular(
                     27,
@@ -228,8 +228,7 @@ class _MainViewState extends State<MainView> {
                                             (sum, item) =>
                                                 sum +
                                                 double.parse(
-                                                    item.moneyInOut!)) ==
-                                    0
+                                                    item.moneyInOut!)) ==0
                             ? Text(
                                 '0.00',
                                 style: TextStyle(
@@ -264,8 +263,7 @@ class _MainViewState extends State<MainView> {
                                         0.0,
                                         (sum, item) =>
                                             sum +
-                                            double.parse(item.moneyInOut!)) ==
-                                0
+                                            double.parse(item.moneyInOut!)) == 0
                         ? Text(
                             '0.00',
                             style: TextStyle(
@@ -292,7 +290,7 @@ class _MainViewState extends State<MainView> {
               ),
             ],
           ),
-//===================================End of Total Money Box===============================================
+
           Column(
             children: [
               Padding(
@@ -305,8 +303,8 @@ class _MainViewState extends State<MainView> {
                   ),
                 ),
               ),
-//Income/Outcome List=============================================================================
-              /* Expanded(
+
+               Expanded(
               child: FutureBuilder<List<Money>>(
                 future: moneyData,
                 builder: (context, snapshot) {
@@ -375,7 +373,7 @@ class _MainViewState extends State<MainView> {
                       : Stack(
                           children: [
                             Positioned.fill(
-                              // top: MediaQuery.of(context).size.height * 0.025,
+                             
                               child: ListView.builder(
                                 itemCount: moneyData!.length,
                                 itemBuilder: (context, index) {
@@ -386,15 +384,15 @@ class _MainViewState extends State<MainView> {
                                     leading: transaction.moneyType == '1'
                                         ? Icon(
                                             Icons
-                                                .arrow_downward, // ใช้ไอคอนแทนรูปภาพ "income"
+                                                .arrow_downward, 
                                             color: Colors.green,
-                                            size: 24.0, // ขนาดของไอคอน
+                                            size: 24.0, 
                                           )
                                         : Icon(
                                             Icons
-                                                .arrow_upward, // ใช้ไอคอนแทนรูปภาพ "outcome"
+                                                .arrow_upward, 
                                             color: Colors.red,
-                                            size: 24.0, // ขนาดของไอคอน
+                                            size: 24.0, 
                                           ),
                                     title: Text(
                                         transaction.moneyDetail ?? 'No Detail'),

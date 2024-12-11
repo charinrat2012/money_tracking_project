@@ -29,20 +29,6 @@ class _HomeUIState extends State<HomeUI> {
   
   Future<List<Money>>? moneyData;
 
-  //สร้างฟังก์ชันเรียกใช้API
-  // getAllMoneyByuserId(Money money) {
-  //   setState(() {
-  //     moneyData = CallAPI.callgetAllMoneyByuserId(money);
-  //   });
-  // }
-  @override
-  // void initState() {
-  //   Money money = Money(
-  //     // userId: widget.user!.userId,
-  //   );
-  //   getAllMoneyByuserId(money);
-  //   super.initState();
-  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -27,8 +27,7 @@ class _IncomeViewState extends State<IncomeView> {
   TextEditingController moneyInOutCtrl = TextEditingController(text: '');
   TextEditingController moneyDateCtrl = TextEditingController(text: '');
 
-//++++++++++++++++Calendar+++++++++++++++++++++++++++++++
-//Method open calendar
+
 //variable date
   String? _DateSelected;
   Future<void> _openCalendar() async {
@@ -48,8 +47,7 @@ class _IncomeViewState extends State<IncomeView> {
     }
   }
 
-//เมธอดแปลงวันที่แบบสากล (ปี ค.ศ.-เดือน ตัวเลข-วัน ตัวเลข) ให้เป็นวันที่แบบไทย (วัน เดือน ปี)
-  //                             2023-11-25
+
   convertToThaiDate(date) {
     String day = date.toString().substring(8, 10);
     String year = (int.parse(date.toString().substring(0, 4)) + 543).toString();
@@ -96,8 +94,7 @@ class _IncomeViewState extends State<IncomeView> {
     return day + ' ' + month + ' พ.ศ. ' + year;
   }
 
-//++++++++++++++++Calendar+++++++++++++++++++++++++++++++
-//-----------------Method showDialog-----------------------------
+
 //Method showWaringDialog
   showWaringDialog(context, msg) {
     showDialog(
@@ -164,7 +161,7 @@ class _IncomeViewState extends State<IncomeView> {
     );
   }
 
-//-----------------End of Method showDialog----------------------
+
 Future<void> callGetAllStatementByUserId(Money money) async {
     final data = await CallAPI.callgetAllMoneyByuserId(money);
     setState(() {
@@ -193,13 +190,13 @@ Future<void> callGetAllStatementByUserId(Money money) async {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    // bottom: ,
+                    
                     ),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 1,
                   height: MediaQuery.of(context).size.height * 0.35,
                   decoration: BoxDecoration(
-                      color: const Color(0xFF3E7C78), // Main Color
+                      color: const Color(0xFF3E7C78), 
                       borderRadius: BorderRadius.vertical(
                         bottom: Radius.elliptical(
                             MediaQuery.of(context).size.width, 100.0),
@@ -230,7 +227,7 @@ Future<void> callGetAllStatementByUserId(Money money) async {
                       borderRadius: BorderRadius.circular(10),
                       child: Image.network(
                         '${Env.hostName}/moneytrackingAPI/picupload/user/${widget.user!.userImage}',
-                        // 'assets/images/paul.png',
+                        
                         width: MediaQuery.of(context).size.width * 0.15,
                         height: MediaQuery.of(context).size.width * 0.15,
                         fit: BoxFit.cover,
@@ -243,7 +240,7 @@ Future<void> callGetAllStatementByUserId(Money money) async {
                 ),
               ),
 
-              //Total Money Box================================================================================
+           
           Padding(
             padding: const EdgeInsets.only(
               top: 150,
@@ -254,7 +251,7 @@ Future<void> callGetAllStatementByUserId(Money money) async {
               width: MediaQuery.of(context).size.width * 1,
               height: MediaQuery.of(context).size.height * 0.25,
               decoration: BoxDecoration(
-                  color: //const Color.fromARGB(255, 47, 116, 121), // Main Color
+                  color: /
                       Color(0xFF107C78),
                   borderRadius: BorderRadius.circular(
                     27,
@@ -408,8 +405,7 @@ Future<void> callGetAllStatementByUserId(Money money) async {
                                         0.0,
                                         (sum, item) =>
                                             sum +
-                                            double.parse(item.moneyInOut!)) ==
-                                0
+                                            double.parse(item.moneyInOut!)) ==0
                         ? Text(
                             '0.00',
                             style: TextStyle(
@@ -436,7 +432,7 @@ Future<void> callGetAllStatementByUserId(Money money) async {
               ),
             ],
           ),
-//===================================End of Total Money Box===============================================
+
               //insert Income===============================================
               Column(
                 children: [
@@ -599,7 +595,7 @@ Future<void> callGetAllStatementByUserId(Money money) async {
                             userId: widget.user!.userId,
                           );
                           //call API
-//ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR vv
+
                           CallAPI.callinsertInOutComeAPI(money).then((value) {
                             if (value.message == '1') {
                               showCompleteDialog(

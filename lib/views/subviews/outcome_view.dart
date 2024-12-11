@@ -21,14 +21,12 @@ class OutcomeView extends StatefulWidget {
 class _OutcomeViewState extends State<OutcomeView> {
   List<Money>? moneyData;
   double totalBalance = 0.0;
-  //TextField Controller
+  
   TextEditingController moneyDetailCtrl = TextEditingController(text: '');
   TextEditingController moneyInOutCtrl = TextEditingController(text: '');
   TextEditingController moneyDateCtrl = TextEditingController(text: '');
 
-//++++++++++++++++Calendar+++++++++++++++++++++++++++++++
-//Method open calendar
-//variable date
+
   String? _DateSelected;
   Future<void> _openCalendar() async {
     final DateTime? _picker = await showDatePicker(
@@ -42,13 +40,12 @@ class _OutcomeViewState extends State<OutcomeView> {
       setState(() {
         moneyDateCtrl.text = convertToThaiDate(_picker);
         _DateSelected = _picker.toString().substring(0, 10);
-        // moneyDateCtrl.text = _picker.toString().substring(0, 10);
+        
       });
     }
   }
 
-//เมธอดแปลงวันที่แบบสากล (ปี ค.ศ.-เดือน ตัวเลข-วัน ตัวเลข) ให้เป็นวันที่แบบไทย (วัน เดือน ปี)
-  //                             2023-11-25
+
   convertToThaiDate(date) {
     String day = date.toString().substring(8, 10);
     String year = (int.parse(date.toString().substring(0, 4)) + 543).toString();
@@ -93,7 +90,7 @@ class _OutcomeViewState extends State<OutcomeView> {
     }
     return day + ' ' + month + ' ' + year;
   }
-//++++++++++++++++Calendar+++++++++++++++++++++++++++++++
+
 
 //-----------------Method showDialog-----------------------------
 //Method showWaringDialog
@@ -162,11 +159,8 @@ class _OutcomeViewState extends State<OutcomeView> {
     );
   }
 
-//-----------------End of Method showDialog----------------------
 
 
-
-  // Fetch data from the API
   Future<void> callGetAllStatementByUserId(Money money) async {
     final data = await CallAPI.callgetAllMoneyByuserId(money);
     setState(() {
@@ -203,7 +197,7 @@ class _OutcomeViewState extends State<OutcomeView> {
                   width: MediaQuery.of(context).size.width * 1,
                   height: MediaQuery.of(context).size.height * 0.35,
                   decoration: BoxDecoration(
-                      color: const Color(0xFF3E7C78), // Main Color
+                      color: const Color(0xFF3E7C78), 
                       borderRadius: BorderRadius.vertical(
                         bottom: Radius.elliptical(
                             MediaQuery.of(context).size.width, 100.0),
@@ -247,7 +241,7 @@ class _OutcomeViewState extends State<OutcomeView> {
                 ),
               ),
 
-              //Total Money Box================================================================================
+              //Total Money Box=======
           Padding(
             padding: const EdgeInsets.only(
               top: 150,
@@ -440,8 +434,7 @@ class _OutcomeViewState extends State<OutcomeView> {
               ),
             ],
           ),
-//===================================End of Total Money Box===============================================
-              //insert Income===============================================
+
               Column(
                 children: [
                   Padding(
@@ -603,8 +596,7 @@ class _OutcomeViewState extends State<OutcomeView> {
                             userId: widget.user!.userId,
                             
                           );
-                          //call API
-//ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR vv                      
+                                           
                           CallAPI.callinsertInOutComeAPI(money).then((value) {
                             if (value.message == '1') {
                               showCompleteDialog(
